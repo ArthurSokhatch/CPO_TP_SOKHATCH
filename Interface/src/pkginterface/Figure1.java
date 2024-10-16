@@ -35,7 +35,7 @@ public class Figure1 extends javax.swing.JFrame {
 
         Texte_intro.setText("jLabel1");
 
-        Mon_bouton.setText("jButton1");
+        Mon_bouton.setText("OK");
 
         Zone_saisie.setText("jTextField1");
 
@@ -60,7 +60,7 @@ public class Figure1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(Resultat)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
