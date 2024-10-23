@@ -10,44 +10,44 @@ package tp2_relation_1_sokhatch;
  */
 public class Personne {
     
-    private String nom;
-    private String prenom;
-    private Voiture[] liste_voitures; // Tableau pour stocker jusqu'à 3 voitures
-    private int nombreVoitures; // Nombre de voitures possédées
+    public String nom;
+    public String prenom;
+    public int nbVoitures;
+    public Voiture[] liste_voitures;
 
     // Constructeur
     public Personne(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
+        this.nbVoitures = 0; // Initialisation à 0
         this.liste_voitures = new Voiture[3]; // Réservation de mémoire pour 3 voitures
-        this.nombreVoitures = 0; // Initialisation du nombre de voitures
+    }
+
+    // Méthode toString pour afficher les détails de la personne
+    @Override
+    public String toString() {
+        return "Personne{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", nbVoitures=" + nbVoitures +
+                '}';
     }
 
     // Méthode pour ajouter une voiture
-    public void ajouterVoiture(Voiture voiture) {
-        if (nombreVoitures < 3) {
-            liste_voitures[nombreVoitures] = voiture;
-            nombreVoitures++;
-        } else {
-            System.out.println("Limite de voitures atteinte !");
+    public boolean ajouter_voiture(Voiture voiture_a_ajouter) {
+        // Vérifier si la voiture a déjà un propriétaire
+        if (voiture_a_ajouter.proprietaire != null) {
+            return false; // Voiture déjà possédée
         }
-    }
-
-    // Méthode toString
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Personne{").append("nom='").append(nom).append('\'')
-                .append(", prenom='").append(prenom).append('\'')
-                .append(", voitures={");
-        for (int i = 0; i < nombreVoitures; i++) {
-            sb.append(liste_voitures[i]);
-            if (i < nombreVoitures - 1) {
-                sb.append(", ");
-            }
+        // Vérifier si la personne a déjà 3 voitures
+        if (nbVoitures >= 3) {
+            return false; // Limite de voitures atteinte
         }
-        sb.append("}}");
-        return sb.toString();
+        // Ajouter la voiture
+        liste_voitures[nbVoitures] = voiture_a_ajouter; // Ajout à la liste
+        nbVoitures++; // Incrémenter le nombre de voitures
+        voiture_a_ajouter.proprietaire = this; // Définir le propriétaire
+        return true; // Ajout réussi
     }
     
 }
