@@ -15,33 +15,31 @@ public class TP2_Bieres_SOKHATCH {
      */
     public static void main(String[] args) {
         
-        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls",7.0f ,"Dubuisson") ;
-        uneBiere.lireEtiquette();
+        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des trolls",7.0f ,"Dubuisson") ;     
         
         
-        BouteilleBiere secondeBiere = new BouteilleBiere("Leffe", 6.6f, "Abbaye de Leffe") ;
-        secondeBiere.lireEtiquette();
+        BouteilleBiere secondeBiere = new BouteilleBiere("Leffe", 6.6f, "Abbaye de Leffe") ;  
         
         
-        BouteilleBiere biere1 = new BouteilleBiere("Heineken", 5.0f, "Heineken International");
-        biere1.lireEtiquette();
+        BouteilleBiere biere1 = new BouteilleBiere("Heineken", 5.0f, "Heineken International");      
 
         
-        BouteilleBiere biere2 = new BouteilleBiere("Guinness", 4.2f, "St. James's Gate Brewery");
-        biere2.lireEtiquette();
+        BouteilleBiere biere2 = new BouteilleBiere("Guinness", 4.2f, "St. James's Gate Brewery"); 
 
         
         BouteilleBiere biere3 = new BouteilleBiere("Chimay Bleue", 9.0f, "Abbaye de Scourmont");
-        biere3.lireEtiquette();
-        
-        
-       
-        boolean result = uneBiere.Decapsuler();
-        System.out.println("Décapsulage réussi : " + result);  
+        // Affichage avec toString()
+        // Décapsuler quelques bières
+        biere1.Decapsuler();
+        biere2.Decapsuler();
+        biere3.Decapsuler();
 
-        
-        result = uneBiere.Decapsuler();
-        System.out.println("Décapsulage réussi : " + result);  
+        // Afficher les informations sur chaque bière
+        System.out.println(uneBiere);  // Cuvée des trolls
+        System.out.println(secondeBiere);  // Leffe
+        System.out.println(biere1);  // Heineken
+        System.out.println(biere2);  // Chimay Bleue
+        System.out.println(biere3);  // Guinness
     }
     
 }
