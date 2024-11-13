@@ -6,6 +6,7 @@ package tp3_heroic_fantasy_sokhatch;
 
 import java.util.ArrayList;
 import Armes.*; 
+import Personnages.*;
 /**
  *
  * @author asokhatch
@@ -16,27 +17,44 @@ public class TP3_Heroic_Fantasy_SOKHATCH {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Epee excalibur = new Epee("Excalibur", 7, 5);
-        Epee durandal = new Epee("Durandal", 4, 7);
+        // Création de personnages
+        // Créer un guerrier et un magicien
+        Guerrier guerrier = new Guerrier("Conan", 78, false);
+        Magicien magicien = new Magicien("Gandalf", 65, true);
 
-        Baton chene = new Baton("Chêne", 4, 5);
-        Baton charme = new Baton("Charme", 5, 6);
-      
-        
-        // Création d'un tableau dynamique pour stocker les armes
-        ArrayList<Arme> armes = new ArrayList<>();
+        // Afficher les caractéristiques des personnages
+        System.out.println(guerrier);
+        System.out.println(magicien);
 
-        // Ajout des armes dans le tableau dynamique
-        armes.add(excalibur);
-        armes.add(durandal);
-        armes.add(chene);
-        armes.add(charme);
+        // Afficher le nombre de personnages, de guerriers et de magiciens
+        System.out.println("Nombre total de personnages : " + Personnage.getNombrePersonnages());
+        System.out.println("Nombre de guerriers : " + Guerrier.getNombreGuerriers());
+        System.out.println("Nombre de magiciens : " + Magicien.getNombreMagiciens());
 
-        // Affichage des informations de chaque arme 
-        for (int i = 0; i < armes.size(); i++) {
-            System.out.println(armes.get(i));
+        // Fatiguer le guerrier
+        guerrier.seFatiguer();
+
+        // Afficher les caractéristiques du guerrier après qu'il soit fatigué
+        System.out.println(guerrier);
+        // Vérifier s'il est toujours vivant
+        if (guerrier.estVivant()) {
+            System.out.println(guerrier.getNom() + " est toujours vivant !");
+        } else {
+            System.out.println(guerrier.getNom() + " est mort...");
+        }
+
+        // Faire en sorte que le magicien soit attaqué par le guerrier
+        guerrier.attaquer(magicien);
+
+        // Afficher les caractéristiques du magicien et du guerrier après l'attaque
+        System.out.println(guerrier);
+        System.out.println(magicien);
+
+        // Vérifier si le magicien est toujours vivant
+        if (magicien.estVivant()) {
+            System.out.println(magicien.getNom() + " est toujours vivant !");
+        } else {
+            System.out.println(magicien.getNom() + " est mort...");
         }
     }
-    
-}
+ }        
