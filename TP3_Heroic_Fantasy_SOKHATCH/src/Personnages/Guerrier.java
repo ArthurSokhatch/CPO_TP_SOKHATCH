@@ -9,26 +9,26 @@ package Personnages;
  * @author asokhatch
  */
 public class Guerrier extends Personnage {
-    public boolean estAcheval() {
-    return estAcheval;
+
+    public static String getNombreGuerriers() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    private boolean aCheval;
+ 
+    public Guerrier(String nom, int niveauVie, boolean aCheval) {
+        super(nom, niveauVie);
+        this.aCheval = aCheval;
+    }
+ 
+    public void setACheval(boolean aCheval) {
+        this.aCheval = aCheval;
+    }
+ 
+    public boolean isACheval() {
+        return aCheval;
     }
 
-    public Guerrier(String nom, int niveauDeVie, boolean estAcheval) {
-        super(nom, niveauDeVie);
-        this.estAcheval = estAcheval;
-        nombreGuerriers++;
-    }
-
-    @Override
-    public void attaquer(Personnage cible) {
-        int dommages = 30; // Un guerrier inflige 30 de dégâts
-        cible.estAttaqué(dommages);
-        System.out.println(getNom() + " attaque " + cible.getNom() + " avec son épée !");
-        System.out.println(cible.getNom() + " a été attaqué et perd " + dommages + " points de vie. Vie restante : " + cible.getNiveauDeVie());
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + ", Type : Guerrier, À cheval : " + estAcheval;
+    public String getNom() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

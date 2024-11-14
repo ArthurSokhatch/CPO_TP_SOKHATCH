@@ -12,5 +12,5 @@ public interface etreVivant {
     // Déclaration des méthodes sans implémentation
     void seFatiguer();
     boolean estVivant();
-    void estAttaqué(int points);
+    void estAttaque(int points);
 }
